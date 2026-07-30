@@ -1,0 +1,27 @@
+# Scratch directory
+scratch/
+.coverage
+.vscode/
+
+# Python-generated files
+__pycache__/
+*.py[oc]
+build/
+dist/
+wheels/
+*.egg-info
+
+docs/_build/
+*.swp
+*.swo
+
+*.lock
+.tox/
+.mypy_cache/
+
+# Virtual environments
+.venv
+
+# Large data files
+examples/data/fields-big.exo
+.s3cache/

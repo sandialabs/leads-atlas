@@ -1,0 +1,53 @@
+[project]
+name = "leads-atlas"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+authors = [
+    { name = "Curtis Brinker", email = "cjbrin@sandia.gov" }
+]
+requires-python = ">=3.11"
+dependencies = [
+    "torch",
+    "torchvision",
+    "pyvista",
+    "boto3>=1.42.56",
+    "tqdm>=4.67.3",
+]
+
+[project.optional-dependencies]
+docs = [
+    "sphinx>=7.0.0",
+    "sphinx-rtd-theme>=2.0.0",
+    "sphinx-autodoc-typehints>=1.25.0",
+    "sphinx_copybutton",
+    "myst-parser>=2.0.0",
+    "doc8",
+]
+
+test = [
+    "pytest>=7.0",
+    "pytest-cov",
+    "leads_atlas[examples]",
+]
+
+examples = [
+    "matplotlib",
+]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[[tool.mypy.overrides]]
+module = [
+    "torch.*",
+    "sphinx.*",
+    "leads_atlas.api",
+    "pyvista.*",
+]
+ignore_missing_imports = true
+
+[tool.pytest.ini_options]
+xfail_strict = true
+testpaths = ["tests/unit"]
